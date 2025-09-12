@@ -6,7 +6,7 @@
   }
 
   html {
-    scroll-padding-top: 0; /* or the height of a fixed navbar if you had one */
+    scroll-padding-top: 80px; /* or the height of a fixed navbar if you had one */
 }
 
   body {
@@ -180,6 +180,7 @@
     justify-content: center;
     background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
     scroll-behavior: auto;
+    padding-top: 80px; 
     padding-bottom: 0; 
   }
   
