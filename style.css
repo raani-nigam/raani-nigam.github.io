@@ -549,36 +549,50 @@
     padding: 5rem 0;
   }
   
-  .placeholder-icon {
-    width: 6rem;
-    height: 6rem;
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  .project-card {
+    max-width: 400px;
+    margin: 2rem auto;
     border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    border: 1px solid #fbbf24;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .project-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   }
-  
-  .placeholder-icon i {
-    color: #eab308;
-    width: 32px;
-    height: 32px;
+
+  .project-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
   }
-  
-  .placeholder-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #374151;
-    margin-bottom: 1rem;
+
+  .project-image {
+      width: 100%;
+      height: auto;
+      display: block;
   }
-  
-  .placeholder-text {
-    color: #9ca3af;
-    max-width: 28rem;
-    margin: 0 auto;
+
+  .project-info {
+      padding: 1rem 1.5rem;
+      background: #ffffff;
   }
+
+  .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+  }
+
+  .project-description {
+      font-size: 1rem;
+      color: #4b5563;
+      line-height: 1.5;
+  }
+
   
   /* Blog Section */
   .blog-section {
