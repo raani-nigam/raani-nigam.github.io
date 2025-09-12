@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTimelineAnimations();
     initializeSmoothScrolling();
     initializeInteractiveEffects();
-    initializeHamburgerToggle(); // New: hamburger menu
+    initializeHamburgerToggle(); // Hamburger menu
 });
 
 // Navigation functionality
@@ -16,16 +16,16 @@ function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = ['hero', 'timeline', 'techstack', 'projects', 'blog', 'contact'];
 
-    // Handle navigation clicks
+    // Handle nav link clicks
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             const targetSection = this.getAttribute('data-section');
             scrollToSection(targetSection);
-            closeHamburgerMenu(); // Close menu on link click
+            closeHamburgerMenu(); // Close menu on mobile
         });
     });
 
-    // Handle hero button click
+    // Hero button click
     const heroButton = document.querySelector('.hero-button');
     if (heroButton) {
         heroButton.addEventListener('click', function() {
@@ -34,10 +34,9 @@ function initializeNavigation() {
         });
     }
 
-    // Update active navigation on scroll
+    // Update active nav on scroll
     window.addEventListener('scroll', function() {
-        const scrollPosition = window.scrollY + 100; // optional offset for fixed navbar
-
+        const scrollPosition = window.scrollY + 100;
         for (let i = sections.length - 1; i >= 0; i--) {
             const section = document.getElementById(sections[i]);
             if (section && scrollPosition >= section.offsetTop) {
@@ -48,19 +47,18 @@ function initializeNavigation() {
     });
 }
 
-// Scroll to section function
+// Scroll to section
 function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
-        const navbarOffset = 0; // adjust if you have a fixed navbar
         window.scrollTo({
-            top: element.offsetTop - navbarOffset,
+            top: element.offsetTop,
             behavior: 'smooth'
         });
     }
 }
 
-// Update active navigation
+// Update active nav
 function updateActiveNavigation(activeSection) {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
@@ -85,7 +83,7 @@ function initializeTimelineAnimations() {
     timelineItems.forEach(item => observer.observe(item));
 }
 
-// Smooth scrolling for all internal links
+// Smooth scrolling for internal links
 function initializeSmoothScrolling() {
     const internalLinks = document.querySelectorAll('a[href^="#"]');
     internalLinks.forEach(link => {
@@ -93,20 +91,19 @@ function initializeSmoothScrolling() {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             scrollToSection(targetId);
+            closeHamburgerMenu(); // Close menu when link clicked
         });
     });
 }
 
-// Interactive effects (cards, buttons, etc.)
+// Interactive effects (cards, buttons)
 function initializeInteractiveEffects() {
-    // Hover effects on cards
     const cards = document.querySelectorAll('.timeline-card, .blog-card');
     cards.forEach(card => {
         card.addEventListener('mouseenter', () => card.style.transform = 'scale(1.02)');
         card.addEventListener('mouseleave', () => card.style.transform = 'scale(1)');
     });
 
-    // Click handlers for media links and buttons
     const mediaLinks = document.querySelectorAll('.media-link, .blog-read-more');
     mediaLinks.forEach(link => {
         link.addEventListener('click', e => {
@@ -115,7 +112,6 @@ function initializeInteractiveEffects() {
         });
     });
 
-    // Blog view all button
     const blogViewAll = document.querySelector('.blog-view-all');
     if (blogViewAll) {
         blogViewAll.addEventListener('click', () => console.log('View all posts clicked'));
@@ -134,7 +130,7 @@ function initializeHamburgerToggle() {
     }
 }
 
-// Close menu when a link is clicked (mobile)
+// Close mobile menu
 function closeHamburgerMenu() {
     const navLinks = document.querySelector('.nav-links');
     if (navLinks && navLinks.classList.contains('show')) {
@@ -151,7 +147,7 @@ function debounce(func, wait) {
     };
 }
 
-// On window load: loading animations & staggered timeline
+// On window load: animations & staggered timeline
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 

@@ -51,6 +51,37 @@
   background-clip: text;
 }
 
+/* Nav container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand */
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Nav links */
 .nav-links {
   display: flex;
@@ -58,20 +89,23 @@
   align-items: center;
 }
 
-/* Individual link */
 .nav-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  border: none;
   background: transparent;
   color: #6b7280;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
+}
+
+.nav-link i {
+  width: 18px;
+  height: 18px;
 }
 
 .nav-link:hover {
@@ -85,55 +119,48 @@
   border: 1px solid #fbbf24;
 }
 
-.nav-link i {
-  width: 18px;
-  height: 18px;
-}
-
-/* Hamburger toggle button */
+/* Hamburger button */
 .nav-toggle {
   display: none; /* hidden by default */
   flex-direction: column;
   justify-content: space-between;
-  width: 2rem;
-  height: 1.5rem;
-  background: none;
-  border: none;
+  width: 28px;
+  height: 22px;
   cursor: pointer;
-  padding: 0;
 }
 
-.nav-toggle .bar {
+.nav-toggle span {
+  display: block;
   height: 3px;
   width: 100%;
-  background-color: #111827;
+  background-color: #1f2937;
   border-radius: 2px;
-  transition: all 0.3s ease;
 }
 
-/* Media query for smaller screens */
+/* Mobile menu (hidden by default) */
+.nav-links.show {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid #f3f4f6;
+  padding: 1rem 0;
+  gap: 0;
+}
+
+/* Hamburger & links responsive */
 @media (max-width: 1000px) {
   .nav-links {
-    display: none; /* hide links by default */
-    flex-direction: column;
-    gap: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    border-top: 1px solid #f3f4f6;
-    padding: 1rem 0;
+      display: none;
   }
-
-  .nav-links.show {
-    display: flex;
-  }
-
   .nav-toggle {
-    display: flex; /* show hamburger */
+      display: flex;
   }
 }
+
 
   
   /* Hero Section */
