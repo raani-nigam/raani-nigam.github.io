@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTimelineAnimations();
     initializeSmoothScrolling();
     initializeInteractiveEffects();
+    initializeHamburgerToggle(); // New: hamburger menu
 });
 
 // Navigation functionality
@@ -20,6 +21,7 @@ function initializeNavigation() {
         link.addEventListener('click', function() {
             const targetSection = this.getAttribute('data-section');
             scrollToSection(targetSection);
+            closeHamburgerMenu(); // Close menu on link click
         });
     });
 
@@ -117,6 +119,26 @@ function initializeInteractiveEffects() {
     const blogViewAll = document.querySelector('.blog-view-all');
     if (blogViewAll) {
         blogViewAll.addEventListener('click', () => console.log('View all posts clicked'));
+    }
+}
+
+// Hamburger menu toggle
+function initializeHamburgerToggle() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    }
+}
+
+// Close menu when a link is clicked (mobile)
+function closeHamburgerMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks && navLinks.classList.contains('show')) {
+        navLinks.classList.remove('show');
     }
 }
 
