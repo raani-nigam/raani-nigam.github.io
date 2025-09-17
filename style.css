@@ -216,6 +216,10 @@ body {
   font-size: 1rem;
 }
 
+.hero-cta-text {
+  margin-bottom: 1.7rem; 
+}
+
 .hero-button:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
